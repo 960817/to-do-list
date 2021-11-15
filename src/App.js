@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useState } from 'react/cjs/react.development';
+import AddBtnComponent from './AddBtnComponent';
 import './App.css';
-
+import FixList from './FixList';
+import MyListItem from './MyListItem'
 function App() {
+
+	const [todo,setTodo] = useState([{id : 0 , note : '알고리즘 공부'}])
+
+	const onAdd = (newTodo) =>{
+		setTodo([...todo,
+			{id : Date.now(), note : newTodo}])
+	}
+
+	const onDelete = (vl) => {
+		setTodo([...todo.filter(el => el.id !== vl.id)])
+	}
+
+	
+
+	const onFix = (e)=>{
+		e.val ? e.val = false : e.val = true
+		if (e.val){
+			
+		}
+	}
+	
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+		<>
+    	<header>
+				<h1>오늘 할일</h1>
+			</header>
+			<AddBtnComponent onAdd={onAdd}/>
+			{todo.map(function(task) {
+				return <MyListItem text={task.note} key={task} onDelete={() => onDelete(task)} onFix ={(e)=> onFix(e)}/>
+			})}
+		</>
   );
 }
 
