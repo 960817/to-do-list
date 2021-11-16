@@ -45,7 +45,6 @@ function App() {
     loadData();
   }, []);
 
-	
   return (
     <>
       <header>
