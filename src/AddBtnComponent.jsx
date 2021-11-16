@@ -1,27 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const AddBtnComponent = ({onAdd}) => {
+const AddBtnComponent = ({ onAdd }) => {
+  const [newTodo, setNewTodo] = useState("");
 
-	const [newTodo, setNewTodo] = useState('')
+  const addList = () => {
+    onAdd(newTodo);
+    setNewTodo("");
+  };
 
-	const addList = () =>{
-		onAdd(newTodo)
-		setNewTodo("")
-	}
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      addList();
+    }
+  };
 
-	const onEnter = (e) =>{
-		if (e.key === 'Enter'){
-			addList();
-		}
-		
-	}
+  return (
+    <div>
+      <input
+        type="text"
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
+        onKeyPress={(e) => onEnter(e)}
+      />
+      <button onClick={addList}>ADD</button>
+    </div>
+  );
+};
 
-	return (
-		<div>
-			<input type='text' value={newTodo} onChange={(e) => setNewTodo(e.target.value)} onKeyPress={(e) =>onEnter(e)}/>
-			<button onClick={addList}>ADD</button>
-		</div>
-	)
-}
-
-export default AddBtnComponent
+export default AddBtnComponent;

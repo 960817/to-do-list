@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const FixList = ({func}) => {
+const FixList = ({ func, onTo }) => {
+  const [fixed, setFixed] = useState("");
 
-	const [fixed, setFixed] = useState('')
+  return (
+    <div>
+      <input
+        type="text"
+        value={fixed}
+        onChange={(e) => setFixed(e.target.value)}
+      />
+      <button onClick={() => func(fixed)}>확인</button>
+    </div>
+  );
+};
 
-	const fixingBtn = () =>{
-		
-	}
-	
-
-	return (
-		<div>
-			<input type='text' value={fixed} onChange={(e) => setFixed(e.target.value)} />
-			<button onClick={fixingBtn}>확인</button>
-		</div>
-	)
-}
-
-export default FixList
+export default FixList;
