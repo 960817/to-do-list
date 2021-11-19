@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App {
   text-align: center;
 }
@@ -39,4 +40,34 @@
 .list.checked {
 	opacity: 0.5;
 	text-decoration: line-through;
+=======
+
+
+header {
+	justify-content: center;
+	border-radius: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	display: flex;
+	width: 600px;
+	
+	background-color :darkgreen;
+	align-items: center;
+	height: 200px;
+}
+header h1 {
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.add {
+	/* border: 1px solid red; */
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+	margin-top: 10px;
+	width: 600px;
+>>>>>>> b6a96a8012ed447ff607fcaee849c7b2ff8a82ed
 }
